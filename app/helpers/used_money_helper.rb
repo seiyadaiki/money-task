@@ -1,0 +1,2 @@
+module UsedMoneyHelper
+end
