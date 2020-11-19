@@ -12,37 +12,29 @@
 | birthday            | date    | null: false |
 
 ### Association
-- has_many :
-- has_one  :orders
+- has_many :used_monies
+- has_one  :goal
 
-### itemsテーブル
+### used_moniesテーブル
 
-| Column           | Type       | Options                       |
-| ---------------- | ---------- | ------------------------------|
-| title            | string     | null: false                   |
-| explanation      | text       | null: false                   |
-| category_id      | integer    | null: false                   |
-| status_id        | integer    | null: false                   |
-| shipping_fee_id  | integer    | null: false                   |
-| location_id      | integer    | null: false                   |
-| delivery_time_id | integer    | null: false                   |
-| selling_price    | integer    | null: false                   |
-| user             | references | null: false, foreign_key: true|
+| Column           | Type       | Options                        |
+| ---------------- | ---------- | ------------------------------ |
+| when             | string     | null: false                    |
+| where            | string     |                                |
+| what             | string     |                                |
+| way_id           | integer    | null: false                    |
+| how_much         | integer    | null: false                    |
+| user             | references | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :user
-- has_one :order
 
-### ordersテーブル
+### goalsテーブル
 
-| Column | Type        | Options                        |
-| -------| ----------- | ------------------------------ |
-| user   | references  | null: false, foreign_key: true |
-| item   | references  | null: false, foreign_key: true |
+| Column     | Type        | Options                        |
+| ---------- | ----------- | ------------------------------ |
+| saving     | integer     | null: false                    |
+| user       | references  | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :user
-- belongs_to :item
-- has_one :adress
-
-### addressesテーブル
