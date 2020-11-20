@@ -1,6 +1,13 @@
 <h1>お金管理アプリ</h1>
-<%= link_to "ログイン", new_user_session_path %>
-<%= link_to "新規登録", new_user_registration_path %>
-<%= link_to "Purchase history", root_path %>
-
-<p>Find me in app/views/used_money/index.html.erb</p>
+<% if user_signed_in? %>
+  <div class="user_nav grid-6">
+     <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+     <%= link_to "購入した時", root_path %>
+     <%= link_to "Purchase history", root_path %>
+  </div>
+<% else %>
+  <div class="user_nav">
+    <%= link_to "ログイン", new_user_session_path %>
+    <%= link_to "Sign up", new_user_registration_path %>
+  </div>
+<% end %>
