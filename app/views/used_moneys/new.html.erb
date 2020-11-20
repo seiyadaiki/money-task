@@ -1,0 +1,12 @@
+<h1>Used_Money</h1>
+<%= form_with model:@used_money, local: true do |f| %>
+  <div class="field">
+    <%= f.label :when %><br />
+    <%= f.text_field :when, class:"input-default", id:"when", placeholder:"2000年1月1日" %>
+  </div>
+  <div class="field">
+    <%= f.label :way_id %><br />
+    <%= f.collection_select(:way_id, Way.all, :id, :name, {}, {class:"way-select"}) %>
+  </div>
+
+<% end %>
