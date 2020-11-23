@@ -12,7 +12,7 @@ class UsedMoneysController < ApplicationController
       @used_money.save
       redirect_to root_path
     else
-      render action: :new
+      render :new
     end
   end
   
