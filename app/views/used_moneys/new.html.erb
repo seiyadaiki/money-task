@@ -6,7 +6,7 @@
       <%= raw sprintf(
                   f.date_select(
                     :when,
-                    class:'select-birth',
+                    class:'select-when',
                     id:"when",
                     use_month_numbers: true,
                     prompt:'--',
@@ -27,6 +27,7 @@
   <div class="field">
     <%= f.label :how_much %><br />
     <%= f.text_field :how_much, class:"input-default", id:"how_much", placeholder:"1000" %>
+    <span>yen</span>
   </div>
   <div class="field">
     <%= f.label :way_id %><br />
