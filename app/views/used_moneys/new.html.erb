@@ -1,7 +1,10 @@
 <h1>Used_Money</h1>
 <%= form_with model:@used_money, local: true do |f| %>
+
+<%= render 'shared/error_messages', model: f.object %>
+
   <div class="field">
-    <%= f.label :when %><br />
+    <%= f.label :when %>＊必須<br />
      <div class='input-default'>
       <%= raw sprintf(
                   f.date_select(
@@ -25,12 +28,12 @@
     <%= f.text_field :what, class:"input-default", id:"what", placeholder:"アクセサリーetc." %>
   </div>
   <div class="field">
-    <%= f.label :how_much %><br />
+    <%= f.label :how_much %>＊必須<br />
     <%= f.text_field :how_much, class:"input-default", id:"how_much", placeholder:"1000" %>
     <span>yen</span>
   </div>
   <div class="field">
-    <%= f.label :way_id %><br />
+    <%= f.label :way_id %>＊必須<br />
     <%= f.collection_select(:way_id, Way.all, :id, :name, {}, {class:"way-select"}) %>
   </div>
   <div class="field">

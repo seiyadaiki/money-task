@@ -7,7 +7,13 @@ class UsedMoneysController < ApplicationController
   end
 
   def create
-    @used_money = UsedMoney.create(used_money_params)
+    @used_money = UsedMoney.new(used_money_params)
+    if @used_money.valid
+      @used_money.save
+      redirect_to root_path
+    else
+      render action: :new
+    end
   end
   
   private
