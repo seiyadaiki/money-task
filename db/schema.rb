@@ -13,7 +13,7 @@
 ActiveRecord::Schema.define(version: 2020_11_20_081034) do
 
   create_table "used_moneys", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "when", null: false
+    t.date "when", null: false
     t.string "where"
     t.string "what", null: false
     t.integer "way_id", null: false

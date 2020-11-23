@@ -1,7 +1,7 @@
 class CreateUsedMoneys < ActiveRecord::Migration[6.0]
   def change
     create_table :used_moneys do |t|
-      t.string     :when,     null:false
+      t.date       :when,     null:false
       t.string     :where 
       t.string     :what,     null:false
       t.integer    :way_id,   null:false 
