@@ -8,9 +8,9 @@
      <div class='input-default'>
       <%= raw sprintf(
                   f.date_select(
-                    :when,
+                    :date,
                     class:'select-when',
-                    id:"when",
+                    id:"date",
                     use_month_numbers: true,
                     prompt:'--',
                     start_year: 2017,
@@ -21,7 +21,7 @@
   </div>
   <div class="field">
     <%= f.label :where %><br />
-    <%= f.text_field :where, class:"input-default", id:"where", placeholder:"雑貨屋etc." %>
+    <%= f.text_field :location, class:"input-default", id:"location", placeholder:"雑貨屋etc." %>
   </div>
   <div class="field">
     <%= f.label :what %><br />
