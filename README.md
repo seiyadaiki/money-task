@@ -19,8 +19,8 @@
 
 | Column           | Type       | Options                        |
 | ---------------- | ---------- | ------------------------------ |
-| when             | string     | null: false                    |
-| where            | string     |                                |
+| date             | string     | null: false                    |
+| location         | string     |                                |
 | what             | string     |                                |
 | way_id           | integer    | null: false                    |
 | how_much         | integer    | null: false                    |
