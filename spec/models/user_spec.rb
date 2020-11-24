@@ -25,12 +25,12 @@ describe User do
       it 'emailに@がないと登録できない' do
         @user.email = 'kkkgmail.com'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Email is invalid")
+        expect(@user.errors.full_messages).to include('Email is invalid')
       end
       it 'emailが@の後に文字がないと登録できない' do
         @user.email = 'kkk@'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Email is invalid")
+        expect(@user.errors.full_messages).to include('Email is invalid')
       end
       it 'passwordが空だと登録できない' do
         @user.password = ''
@@ -40,17 +40,17 @@ describe User do
       it 'passwordが5文字以下だと登録できない' do
         @user.password = 'kkk11'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Password is invalid. Input half-width characters.")
+        expect(@user.errors.full_messages).to include('Password is invalid. Input half-width characters.')
       end
       it 'passwordが英字だけだと登録できない' do
         @user.password = 'kkkkkk'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Password is invalid. Input half-width characters.")
+        expect(@user.errors.full_messages).to include('Password is invalid. Input half-width characters.')
       end
       it 'passwordが数字のみだと登録できない' do
         @user.password = '111111'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Password is invalid. Input half-width characters.")
+        expect(@user.errors.full_messages).to include('Password is invalid. Input half-width characters.')
       end
       it 'passwordとpassword_confirmationが一致しないと登録できない' do
         @user.password = 'kkk111'
@@ -61,37 +61,37 @@ describe User do
       it 'nameが空だと登録できない' do
         @user.name = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include("Name is invalid. Input full-width characters.")
+        expect(@user.errors.full_messages).to include('Name is invalid. Input full-width characters.')
       end
       it 'nameが数字だと登録できない' do
         @user.name = '1111'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Name is invalid. Input full-width characters.")
+        expect(@user.errors.full_messages).to include('Name is invalid. Input full-width characters.')
       end
       it 'nameが半角だと登録できない' do
         @user.name = 'ｱｱ'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Name is invalid. Input full-width characters.")
+        expect(@user.errors.full_messages).to include('Name is invalid. Input full-width characters.')
       end
       it 'namekanaが空だと登録できない' do
         @user.namekana = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include("Namekana is invalid. Input full-width katakana characters.")
+        expect(@user.errors.full_messages).to include('Namekana is invalid. Input full-width katakana characters.')
       end
       it 'namekanaが漢字だと登録できない' do
         @user.namekana = '金銭太郎'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Namekana is invalid. Input full-width katakana characters.")
+        expect(@user.errors.full_messages).to include('Namekana is invalid. Input full-width katakana characters.')
       end
       it 'namekanaがひらがなだと登録できない' do
         @user.namekana = 'きんせんたろう'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Namekana is invalid. Input full-width katakana characters.")
+        expect(@user.errors.full_messages).to include('Namekana is invalid. Input full-width katakana characters.')
       end
       it 'namekanaが半角だと登録できない' do
         @user.namekana = 'ｷﾝｾﾝﾀﾛｳ'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Namekana is invalid. Input full-width katakana characters.")
+        expect(@user.errors.full_messages).to include('Namekana is invalid. Input full-width katakana characters.')
       end
       it 'birthdayが空だと登録できない' do
         @user.birthday = ''
@@ -101,4 +101,3 @@ describe User do
     end
   end
 end
-
