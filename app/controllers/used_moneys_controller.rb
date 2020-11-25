@@ -1,5 +1,6 @@
 class UsedMoneysController < ApplicationController
   def index
+    @used_moneys = UsedMoney.all
   end
 
   def new

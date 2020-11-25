@@ -1,14 +1,46 @@
-<h1>お金管理アプリ</h1>
-<% if user_signed_in? %>
-  <%= link_to "Hello<#{current_user.nickname}>さん！！", root_path, class: :greeting__link%> 
-  <div class="user_nav grid-6">
-     <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-     <%= link_to "Used Money", new_used_money_path %>
-     <%= link_to "Purchase History", root_path %>
-  </div>
-<% else %>
-  <div class="user_nav">
-    <%= link_to "ログイン", new_user_session_path %>
-    <%= link_to "Sign up", new_user_registration_path %>
-  </div>
-<% end %>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheets" href="index.css">
+  </head>
+  <body>
+    <header>
+    </header>
+    <h1>お金管理アプリ</h1>
+    <% if user_signed_in? %>
+      <%= link_to "Hello<#{current_user.nickname}>さん！！", root_path, class: :greeting__link%> 
+      <div class="user_nav grid-6">
+        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+        <%= link_to "Used Money", new_used_money_path %>
+        <%= link_to "Purchase History", root_path %>
+      </div>
+    <% else %>
+      <div class="user_nav">
+        <%= link_to "ログイン", new_user_session_path %>
+        <%= link_to "Sign up", new_user_registration_path %>
+      </div>
+    <% end %>
+
+    <% @used_moneys.each do |used_money| %>
+    <div class="used_money">
+      <div class="money_date">
+        <%= used_money.date %>
+      </div>
+      <div class="money_location">
+        <%= used_money.location %>
+      </div>
+      <div class="money_what">
+        <%= used_money.what %>
+      </div>
+      <div class="money_how_much">
+        <%= used_money.how_much %>
+      </div>
+      <div class="money_way.name">
+        <%= used_money.way.name %>
+      </div>
+    </div>
+    <% end %>
+  </body>
+</html>
+
+
