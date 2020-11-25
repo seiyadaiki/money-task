@@ -1,0 +1,26 @@
+.used_money{
+  display: flex;
+  border: solid;
+  margin: 30px 30px 30px 0px;
+  padding: 0px;
+  background-color: skyblue;
+  justify-content: space-around;
+}
+
+.money_date{
+  border-right: solid;
+}
+
+.money_location{
+  border-right: solid;
+}
+
+.money_what{
+  border-right: solid;
+}
+
+.money_how_much{
+  border-right: solid;
+}
+
+
