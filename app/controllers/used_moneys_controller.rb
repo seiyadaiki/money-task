@@ -1,6 +1,7 @@
 class UsedMoneysController < ApplicationController
   def index
-    @used_moneys = UsedMoney.all.order(created_at: :desc)
+    @used_moneys = UsedMoney.all.order(date: :desc)
+    @this_month = Date.today.all_month
   end
 
   def new
