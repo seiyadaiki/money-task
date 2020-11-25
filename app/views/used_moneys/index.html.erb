@@ -20,25 +20,27 @@
         <%= link_to "Sign up", new_user_registration_path %>
       </div>
     <% end %>
-
+    
     <% @used_moneys.each do |used_money| %>
-    <div class="used_money">
-      <div class="money_date">
-        <%= used_money.date %>
+      <% if user_signed_in? && current_user.id == used_money.user_id %>
+      <div class="used_money">
+        <div class="money_date">
+          <%= "When:#{used_money.date}" %>
+        </div>
+        <div class="money_location">
+          <%= "Where:#{used_money.location}" %>
+        </div>
+        <div class="money_what">
+          <%= "What:#{used_money.what}" %>
+        </div>
+        <div class="money_how_much">
+          <%= "Howmuch:#{used_money.how_much}" %>
+        </div>
+        <div class="money_way.name">
+          <%= "Way:#{used_money.way.name}" %>
+        </div>
       </div>
-      <div class="money_location">
-        <%= used_money.location %>
-      </div>
-      <div class="money_what">
-        <%= used_money.what %>
-      </div>
-      <div class="money_how_much">
-        <%= used_money.how_much %>
-      </div>
-      <div class="money_way.name">
-        <%= used_money.way.name %>
-      </div>
-    </div>
+      <% end %>
     <% end %>
   </body>
 </html>
