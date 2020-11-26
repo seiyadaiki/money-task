@@ -1,3 +1,7 @@
+.month_total{
+  display: flex;
+}
+
 .used_money{
   display: flex;
   border: solid;
