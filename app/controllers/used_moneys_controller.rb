@@ -19,7 +19,18 @@ class UsedMoneysController < ApplicationController
       render :new
     end
   end
-  
+
+  def show
+    @used_moneys = UsedMoney.all.order(date: :desc)
+    @this_month = Date.today.all_month
+    @last_month = Date.today.last_month.all_month
+    @two_month_ago = Date.today.months_ago(2).all_month
+    @three_month_ago = Date.today.months_ago(3).all_month
+    @four_month_ago = Date.today.months_ago(4).all_month
+    @five_month_ago = Date.today.months_ago(5).all_month
+    @six_month_ago = Date.today.months_ago(6).all_month
+  end
+
   private
 
   def used_money_params
