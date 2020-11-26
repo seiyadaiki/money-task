@@ -6,8 +6,9 @@ class UsedMoney < ApplicationRecord
 
   with_options presence: true do
     validates :date
-    validates :what
+    validates :what, length: { maximum: 10 }
     validates :how_much, numericality: { with:/\A[0-9]+\z/, message: "is invalid. Input half-width numbers" }
     validates :way_id, numericality: { other_than: 0, message: "can't be blank" }
   end
+  validates :location, length: { maximum: 10 }
 end

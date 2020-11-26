@@ -24,12 +24,12 @@
     <div class="this_month_title" >
       <%= "<< #{@this_month} >>" %>
         <div class="month_total">
+        <%= "<< 今月(#{@this_month})は 計 => #{}  yen使いました >>" %>
           <!--<%= "<< #{@this_month} 計 => #{@this_month_total}  yen >>" %>-->
         </div>
     </div>
     <% @used_moneys.each do |used_money| %>
     <% if (@this_month.include?(Date.parse(used_money[:date].to_s))) %>
-      <%= "<< 今月(#{@this_month})は 計 => #{}  yen使いました >>" %>
       <% if user_signed_in? && current_user.id == used_money.user_id %>
       <div class="used_money">
         <div class="money_date">

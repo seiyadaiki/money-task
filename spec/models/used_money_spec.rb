@@ -26,6 +26,16 @@ describe User do
         @used_money.valid?
         expect(@used_money.errors.full_messages).to include("What can't be blank")
       end
+      it 'whatが11文字以上だと登録できない' do
+        @used_money.what = "あああああああああああ"
+        @used_money.valid?
+        expect(@used_money.errors.full_messages).to include("What is too long (maximum is 10 characters)")
+      end
+      it 'locationが11文字以上だと登録できない' do
+        @used_money.location = "あああああああああああ"
+        @used_money.valid?
+        expect(@used_money.errors.full_messages).to include("Location is too long (maximum is 10 characters)")
+      end
       it 'how_muchが空だと登録できない' do
         @used_money.how_much = ""
         @used_money.valid?

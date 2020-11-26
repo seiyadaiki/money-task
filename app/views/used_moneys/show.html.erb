@@ -3,12 +3,12 @@
 <div class="this_month_title" >
       <%= "<< #{@this_month} >>" %>
         <div class="month_total">
+        <%= "<< 今月(#{@this_month})は 計 => #{}  yen使いました >>" %>
           <!--<%= "<< #{@this_month} 計 => #{@this_month_total}  yen >>" %>-->
         </div>
     </div>
     <% @used_moneys.each do |used_money| %>
     <% if (@this_month.include?(Date.parse(used_money[:date].to_s))) %>
-      <%= "<< 今月(#{@this_month})は 計 => #{}  yen使いました >>" %>
       <% if user_signed_in? && current_user.id == used_money.user_id %>
       <div class="used_money">
         <div class="money_date">
@@ -35,12 +35,12 @@
 <div class="last_month_title" >
       <%= "<< #{@last_month} >>" %>
         <div class="last_month_total">
+        <%= "<< 先月(#{@last_month})は 計 => #{}  yen使いました >>" %>
           <!--<%= "<< #{@this_month} 計 => #{@this_month_total}  yen >>" %>-->
         </div>
     </div>
     <% @used_moneys.each do |used_money| %>
     <% if (@last_month.include?(Date.parse(used_money[:date].to_s))) %>
-      <%= "<< 先月(#{@last_month})は 計 => #{}  yen使いました >>" %>
       <% if user_signed_in? && current_user.id == used_money.user_id %>
       <div class="used_money">
         <div class="money_date">
@@ -67,12 +67,12 @@
 <div class="two_month_ago_title" >
       <%= "<< #{@two_month_ago} >>" %>
         <div class="two_month_ago_total">
+        <%= "<< 先々月(#{@two_month_ago})は 計 => #{}  yen使いました >>" %>
           <!--<%= "<< #{@this_month} 計 => #{@this_month_total}  yen >>" %>-->
         </div>
     </div>
     <% @used_moneys.each do |used_money| %>
     <% if (@two_month_ago.include?(Date.parse(used_money[:date].to_s))) %>
-      <%= "<< 先々月(#{@two_month_ago})は 計 => #{}  yen使いました >>" %>
       <% if user_signed_in? && current_user.id == used_money.user_id %>
       <div class="used_money">
         <div class="money_date">
@@ -99,12 +99,12 @@
 <div class="three_month_ago_title" >
       <%= "<< #{@three_month_ago} >>" %>
         <div class="three_month_ago_total">
+         <%= "<< 3ヶ月前(#{@three_month_ago})は 計 => #{}  yen使いました >>" %>
           <!--<%= "<< #{@this_month} 計 => #{@this_month_total}  yen >>" %>-->
         </div>
     </div>
     <% @used_moneys.each do |used_money| %>
     <% if (@three_month_ago.include?(Date.parse(used_money[:date].to_s))) %>
-      <%= "<< 3ヶ月前(#{@three_month_ago})は 計 => #{}  yen使いました >>" %>
       <% if user_signed_in? && current_user.id == used_money.user_id %>
       <div class="used_money">
         <div class="money_date">
@@ -131,12 +131,12 @@
 <div class="four_month_ago_title" >
       <%= "<< #{@four_month_ago} >>" %>
         <div class="four_month_ago_total">
+        <%= "<< 4ヶ月前(#{@four_month_ago})は 計 => #{}  yen使いました >>" %>
           <!--<%= "<< #{@this_month} 計 => #{@this_month_total}  yen >>" %>-->
         </div>
     </div>
     <% @used_moneys.each do |used_money| %>
     <% if (@four_month_ago.include?(Date.parse(used_money[:date].to_s))) %>
-      <%= "<< 4ヶ月前(#{@four_month_ago})は 計 => #{}  yen使いました >>" %>
       <% if user_signed_in? && current_user.id == used_money.user_id %>
       <div class="used_money">
         <div class="money_date">
@@ -163,6 +163,7 @@
 <div class="five_month_ago_title" >
       <%= "<< #{@five_month_ago} >>" %>
         <div class="five_month_ago_total">
+        <%= "<< 5ヶ月前(#{@five_month_ago})は 計 => #{}  yen使いました >>" %>
           <!--<%= "<< #{@this_month} 計 => #{@this_month_total}  yen >>" %>-->
         </div>
     </div>
@@ -195,12 +196,12 @@
 <div class="six_month_ago_title" >
       <%= "<< #{@six_month_ago} >>" %>
         <div class="six_month_ago_total">
+         <%= "<< 半年前(#{@six_month_ago})は 計 => #{}  yen使いました >>" %>
           <!--<%= "<< #{@this_month} 計 => #{@this_month_total}  yen >>" %>-->
         </div>
     </div>
     <% @used_moneys.each do |used_money| %>
     <% if (@six_month_ago.include?(Date.parse(used_money[:date].to_s))) %>
-      <%= "<< 半年前(#{@six_month_ago})は 計 => #{}  yen使いました >>" %>
       <% if user_signed_in? && current_user.id == used_money.user_id %>
       <div class="used_money">
         <div class="money_date">
