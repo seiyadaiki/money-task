@@ -1,9 +1,14 @@
 class UsedMoneysController < ApplicationController
-  #before_action :this_month_total, only: :index
 
   def index
     @used_moneys = UsedMoney.all.order(date: :desc)
     @this_month = Date.today.all_month
+    @total = []
+    UsedMoney.all.each do |used_money|
+      if (@this_month.include?(Date.parse(used_money[:date].to_s)))
+        @total << used_money.how_much
+      end
+    end
   end
 
   def new
@@ -23,12 +28,54 @@ class UsedMoneysController < ApplicationController
   def show
     @used_moneys = UsedMoney.all.order(date: :desc)
     @this_month = Date.today.all_month
-    @last_month = Date.today.last_month.all_month
+    @last_month = Date.today.months_ago(1).all_month
     @two_month_ago = Date.today.months_ago(2).all_month
     @three_month_ago = Date.today.months_ago(3).all_month
     @four_month_ago = Date.today.months_ago(4).all_month
     @five_month_ago = Date.today.months_ago(5).all_month
     @six_month_ago = Date.today.months_ago(6).all_month
+    @total = []
+    UsedMoney.all.each do |used_money|
+      if (@this_month.include?(Date.parse(used_money[:date].to_s)))
+        @total << used_money.how_much
+      end
+    end
+    @total_last_month = []
+    UsedMoney.all.each do |used_money|
+      if (@last_month.include?(Date.parse(used_money[:date].to_s)))
+        @total_last_month << used_money.how_much
+      end
+    end
+    @total_two_month_ago = []
+    UsedMoney.all.each do |used_money|
+      if (@two_month_ago.include?(Date.parse(used_money[:date].to_s)))
+        @total_two_month_ago << used_money.how_much
+      end
+    end
+    @total_three_month_ago = []
+    UsedMoney.all.each do |used_money|
+      if (@three_month_ago.include?(Date.parse(used_money[:date].to_s)))
+        @total_three_month_ago << used_money.how_much
+      end
+    end
+    @total_four_month_ago = []
+    UsedMoney.all.each do |used_money|
+      if (@four_month_ago.include?(Date.parse(used_money[:date].to_s)))
+        @total_four_month_ago << used_money.how_much
+      end
+    end
+    @total_five_month_ago = []
+    UsedMoney.all.each do |used_money|
+      if (@two_month_ago.include?(Date.parse(used_money[:date].to_s)))
+        @total_five_month_ago << used_money.how_much
+      end
+    end
+    @total_six_month_ago = []
+    UsedMoney.all.each do |used_money|
+      if (@six_month_ago.include?(Date.parse(used_money[:date].to_s)))
+        @total_six_month_ago << used_money.how_much
+      end
+    end
   end
 
   private
@@ -36,12 +83,4 @@ class UsedMoneysController < ApplicationController
   def used_money_params
     params.require(:used_money).permit(:date, :location, :what, :how_much, :way_id,).merge(user_id: current_user.id)
   end
-  
-  #def this_month_total
-    #@used_moneys = UsedMoney.all
-    #@this_month = Date.today.all_month
-    #if (@this_month.include?(Date.parse(@used_moneys[:date].to_s)))
-      #@used_moneys.how_much.sum
-    #end
-  #end
 end
