@@ -3,7 +3,7 @@ class Way < ActiveHash::Base
     { id: 0, name: '--' },
     { id: 1, name: '現金' },
     { id: 2, name: 'クレジットカード' },
-    { id: 3, name: '電子マネー' },
+    { id: 3, name: '電子マネー' }
   ]
 
   include ActiveHash::Associations

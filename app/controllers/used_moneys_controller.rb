@@ -1,15 +1,12 @@
 class UsedMoneysController < ApplicationController
-
   def index
     @used_moneys = UsedMoney.all.order(date: :desc)
     @this_month = Date.today.all_month
     @total = []
     UsedMoney.all.each do |used_money|
-      if (@this_month.include?(Date.parse(used_money[:date].to_s)))
-       if user_signed_in? && current_user.id == used_money.user_id 
-        @total << used_money.how_much
-       end
-      end
+      next unless @this_month.include?(Date.parse(used_money[:date].to_s))
+
+      @total << used_money.how_much if user_signed_in? && current_user.id == used_money.user_id
     end
   end
 
@@ -38,65 +35,51 @@ class UsedMoneysController < ApplicationController
     @six_month_ago = Date.today.months_ago(6).all_month
     @total = []
     UsedMoney.all.each do |used_money|
-      if (@this_month.include?(Date.parse(used_money[:date].to_s)))
-       if user_signed_in? && current_user.id == used_money.user_id 
-        @total << used_money.how_much
-       end
-      end
+      next unless @this_month.include?(Date.parse(used_money[:date].to_s))
+
+      @total << used_money.how_much if user_signed_in? && current_user.id == used_money.user_id
     end
     @total_last_month = []
     UsedMoney.all.each do |used_money|
-      if (@last_month.include?(Date.parse(used_money[:date].to_s)))
-       if user_signed_in? && current_user.id == used_money.user_id 
-        @total_last_month << used_money.how_much
-       end
-      end
+      next unless @last_month.include?(Date.parse(used_money[:date].to_s))
+
+      @total_last_month << used_money.how_much if user_signed_in? && current_user.id == used_money.user_id
     end
     @total_two_month_ago = []
     UsedMoney.all.each do |used_money|
-      if (@two_month_ago.include?(Date.parse(used_money[:date].to_s)))
-       if user_signed_in? && current_user.id == used_money.user_id 
-        @total_two_month_ago << used_money.how_much
-       end
-      end
+      next unless @two_month_ago.include?(Date.parse(used_money[:date].to_s))
+
+      @total_two_month_ago << used_money.how_much if user_signed_in? && current_user.id == used_money.user_id
     end
     @total_three_month_ago = []
     UsedMoney.all.each do |used_money|
-      if (@three_month_ago.include?(Date.parse(used_money[:date].to_s)))
-       if user_signed_in? && current_user.id == used_money.user_id 
-        @total_three_month_ago << used_money.how_much
-       end
-      end
+      next unless @three_month_ago.include?(Date.parse(used_money[:date].to_s))
+
+      @total_three_month_ago << used_money.how_much if user_signed_in? && current_user.id == used_money.user_id
     end
     @total_four_month_ago = []
     UsedMoney.all.each do |used_money|
-      if (@four_month_ago.include?(Date.parse(used_money[:date].to_s)))
-       if user_signed_in? && current_user.id == used_money.user_id 
-        @total_four_month_ago << used_money.how_much
-       end
-      end
+      next unless @four_month_ago.include?(Date.parse(used_money[:date].to_s))
+
+      @total_four_month_ago << used_money.how_much if user_signed_in? && current_user.id == used_money.user_id
     end
     @total_five_month_ago = []
     UsedMoney.all.each do |used_money|
-      if (@two_month_ago.include?(Date.parse(used_money[:date].to_s)))
-       if user_signed_in? && current_user.id == used_money.user_id 
-        @total_five_month_ago << used_money.how_much
-       end
-      end
+      next unless @two_month_ago.include?(Date.parse(used_money[:date].to_s))
+
+      @total_five_month_ago << used_money.how_much if user_signed_in? && current_user.id == used_money.user_id
     end
     @total_six_month_ago = []
     UsedMoney.all.each do |used_money|
-      if (@six_month_ago.include?(Date.parse(used_money[:date].to_s)))
-       if user_signed_in? && current_user.id == used_money.user_id 
-        @total_six_month_ago << used_money.how_much
-       end
-      end
+      next unless @six_month_ago.include?(Date.parse(used_money[:date].to_s))
+
+      @total_six_month_ago << used_money.how_much if user_signed_in? && current_user.id == used_money.user_id
     end
   end
 
   private
 
   def used_money_params
-    params.require(:used_money).permit(:date, :location, :what, :how_much, :way_id,).merge(user_id: current_user.id)
+    params.require(:used_money).permit(:date, :location, :what, :how_much, :way_id).merge(user_id: current_user.id)
   end
 end

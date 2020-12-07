@@ -1,9 +1,8 @@
 FactoryBot.define do
-
   factory :used_money do
-    association  :user
+    association :user
 
-    date                   { '2020-1-1'}
+    date                   { '2020-1-1' }
     location               { '東京' }
     what                   { '服' }
     how_much               { '1000' }
