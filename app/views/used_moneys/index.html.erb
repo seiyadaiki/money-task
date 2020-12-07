@@ -6,9 +6,9 @@
   <body>
     <header>
     </header>
-    <h1>お金管理アプリ</h1>
+    <h1>MoneyTask</h1>
     <% if user_signed_in? %>
-      <%= link_to "Hello<#{current_user.nickname}>さん！！", root_path, class: :greeting__link%> 
+      <%= link_to "Hello<#{current_user.nickname}>さん！！", used_money_path(@used_moneys.ids), class: :greeting__link%> 
       <div class="user_nav grid-6">
         <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
         <%= link_to "Used Money", new_used_money_path %>
@@ -23,10 +23,13 @@
     
     <div class="this_month_title" >
       <%= "<< #{@this_month} >>" %>
+    <% @used_moneys.first(2).each do |used_money| %>
+      <% if user_signed_in? && current_user.id == used_money.user_id %>
         <div class="month_total">
-        <%= "<< 今月(#{@this_month})は 計 => #{}  yen使いました >>" %>
-          <!--<%= "<< #{@this_month} 計 => #{@this_month_total}  yen >>" %>-->
+          <%= "<< 今月(#{@this_month})は total => #{@total.sum}  yen使いました >>" %>
         </div>
+      <% end %>
+    <% end %>
     </div>
     <% @used_moneys.each do |used_money| %>
     <% if (@this_month.include?(Date.parse(used_money[:date].to_s))) %>
