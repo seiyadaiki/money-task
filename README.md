@@ -76,13 +76,3 @@ https://gyazo.com/5952c5d70c0802679156cc98e57b3f38
 
 ### Association
 - belongs_to :user
-
-### goalsテーブル
-
-| Column     | Type        | Options                        |
-| ---------- | ----------- | ------------------------------ |
-| saving     | integer     | null: false                    |
-| user       | references  | null: false, foreign_key: true |
-
-### Association
-- belongs_to :user

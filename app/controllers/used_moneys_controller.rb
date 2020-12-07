@@ -6,7 +6,9 @@ class UsedMoneysController < ApplicationController
     @total = []
     UsedMoney.all.each do |used_money|
       if (@this_month.include?(Date.parse(used_money[:date].to_s)))
+       if user_signed_in? && current_user.id == used_money.user_id 
         @total << used_money.how_much
+       end
       end
     end
   end
@@ -37,43 +39,57 @@ class UsedMoneysController < ApplicationController
     @total = []
     UsedMoney.all.each do |used_money|
       if (@this_month.include?(Date.parse(used_money[:date].to_s)))
+       if user_signed_in? && current_user.id == used_money.user_id 
         @total << used_money.how_much
+       end
       end
     end
     @total_last_month = []
     UsedMoney.all.each do |used_money|
       if (@last_month.include?(Date.parse(used_money[:date].to_s)))
+       if user_signed_in? && current_user.id == used_money.user_id 
         @total_last_month << used_money.how_much
+       end
       end
     end
     @total_two_month_ago = []
     UsedMoney.all.each do |used_money|
       if (@two_month_ago.include?(Date.parse(used_money[:date].to_s)))
+       if user_signed_in? && current_user.id == used_money.user_id 
         @total_two_month_ago << used_money.how_much
+       end
       end
     end
     @total_three_month_ago = []
     UsedMoney.all.each do |used_money|
       if (@three_month_ago.include?(Date.parse(used_money[:date].to_s)))
+       if user_signed_in? && current_user.id == used_money.user_id 
         @total_three_month_ago << used_money.how_much
+       end
       end
     end
     @total_four_month_ago = []
     UsedMoney.all.each do |used_money|
       if (@four_month_ago.include?(Date.parse(used_money[:date].to_s)))
+       if user_signed_in? && current_user.id == used_money.user_id 
         @total_four_month_ago << used_money.how_much
+       end
       end
     end
     @total_five_month_ago = []
     UsedMoney.all.each do |used_money|
       if (@two_month_ago.include?(Date.parse(used_money[:date].to_s)))
+       if user_signed_in? && current_user.id == used_money.user_id 
         @total_five_month_ago << used_money.how_much
+       end
       end
     end
     @total_six_month_ago = []
     UsedMoney.all.each do |used_money|
       if (@six_month_ago.include?(Date.parse(used_money[:date].to_s)))
+       if user_signed_in? && current_user.id == used_money.user_id 
         @total_six_month_ago << used_money.how_much
+       end
       end
     end
   end

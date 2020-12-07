@@ -2,9 +2,13 @@
 <%= link_to "トップページへ", root_path %>
 <div class="this_month_title" >
       <%= "<< #{@this_month} >>" %>
+    <% @used_moneys.first(2).each do |used_money| %>
+      <% if user_signed_in? && current_user.id == used_money.user_id %>
         <div class="month_total">
-        <%= "<< 今月(#{@this_month})は total => #{@total.sum}  yen使いました >>" %>
+          <%= "<< 今月(#{@this_month})は total => #{@total.sum}  yen使いました >>" %>
         </div>
+      <% end %>
+    <% end %>
     </div>
     <% @used_moneys.each do |used_money| %>
     <% if (@this_month.include?(Date.parse(used_money[:date].to_s))) %>
@@ -30,13 +34,15 @@
     <% end %>
     <% end %>
 </div>
-
 <div class="last_month_title" >
       <%= "<< #{@last_month} >>" %>
-        <div class="last_month_total">
-        <%= "<< 先月(#{@last_month})は total => #{@total_last_month.sum}  yen使いました >>" %>
+    <% @used_moneys.first(2).each do |used_money| %>
+      <% if user_signed_in? && current_user.id == used_money.user_id %>
+        <div class="month_total">
+          <%= "<< 先月(#{@last_month})は total => #{@total_last_month.sum}  yen使いました >>" %>
         </div>
-    </div>
+      <% end %>
+    <% end %>
     <% @used_moneys.each do |used_money| %>
     <% if (@last_month.include?(Date.parse(used_money[:date].to_s))) %>
       <% if user_signed_in? && current_user.id == used_money.user_id %>
@@ -64,10 +70,13 @@
 
 <div class="two_month_ago_title" >
       <%= "<< #{@two_month_ago} >>" %>
-        <div class="two_month_ago_total">
-        <%= "<< 先々月(#{@two_month_ago})は 計 => #{@total_two_month_ago.sum}  yen使いました >>" %>
+      <% @used_moneys.first(2).each do |used_money| %>
+      <% if user_signed_in? && current_user.id == used_money.user_id %>
+        <div class="month_total">
+          <%= "<< 2ヶ月前(#{@two_month_ago})は total => #{@total_two_month_ago.sum}  yen使いました >>" %>
         </div>
-    </div>
+      <% end %>
+    <% end %>
     <% @used_moneys.each do |used_money| %>
     <% if (@two_month_ago.include?(Date.parse(used_money[:date].to_s))) %>
       <% if user_signed_in? && current_user.id == used_money.user_id %>
@@ -95,9 +104,13 @@
 
 <div class="three_month_ago_title" >
       <%= "<< #{@three_month_ago} >>" %>
-        <div class="three_month_ago_total">
-         <%= "<< 3ヶ月前(#{@three_month_ago})は 計 => #{@total_three_month_ago.sum}  yen使いました >>" %>
+      <% @used_moneys.first(2).each do |used_money| %>
+      <% if user_signed_in? && current_user.id == used_money.user_id %>
+        <div class="month_total">
+          <%= "<< 3ヶ月前(#{@three_month_ago})は total => #{@total_three_month_ago.sum}  yen使いました >>" %>
         </div>
+      <% end %>
+    <% end %>
     </div>
     <% @used_moneys.each do |used_money| %>
     <% if (@three_month_ago.include?(Date.parse(used_money[:date].to_s))) %>
@@ -126,10 +139,13 @@
 
 <div class="four_month_ago_title" >
       <%= "<< #{@four_month_ago} >>" %>
-        <div class="four_month_ago_total">
-        <%= "<< 4ヶ月前(#{@four_month_ago})は 計 => #{@total_four_month_ago.sum}  yen使いました >>" %>
+      <% @used_moneys.first(2).each do |used_money| %>
+      <% if user_signed_in? && current_user.id == used_money.user_id %>
+        <div class="month_total">
+          <%= "<< 4ヶ月前(#{@four_month_ago})は total => #{@total_four_month_ago.sum}  yen使いました >>" %>
         </div>
-    </div>
+      <% end %>
+    <% end %>
     <% @used_moneys.each do |used_money| %>
     <% if (@four_month_ago.include?(Date.parse(used_money[:date].to_s))) %>
       <% if user_signed_in? && current_user.id == used_money.user_id %>
@@ -157,13 +173,15 @@
 
 <div class="five_month_ago_title" >
       <%= "<< #{@five_month_ago} >>" %>
-        <div class="five_month_ago_total">
-        <%= "<< 5ヶ月前(#{@five_month_ago})は 計 => #{@total_five_month_ago.sum}  yen使いました >>" %>
+      <% @used_moneys.first(2).each do |used_money| %>
+      <% if user_signed_in? && current_user.id == used_money.user_id %>
+        <div class="month_total">
+          <%= "<< 5ヶ月前(#{@five_month_ago})は total => #{@total_five_month_ago.sum}  yen使いました >>" %>
         </div>
-    </div>
+      <% end %>
+    <% end %>
     <% @used_moneys.each do |used_money| %>
     <% if (@five_month_ago.include?(Date.parse(used_money[:date].to_s))) %>
-      <%= "<< 5ヶ月前(#{@five_month_ago})は 計 => #{}  yen使いました >>" %>
       <% if user_signed_in? && current_user.id == used_money.user_id %>
       <div class="used_money">
         <div class="money_date">
@@ -189,9 +207,13 @@
 
 <div class="six_month_ago_title" >
       <%= "<< #{@six_month_ago} >>" %>
-        <div class="six_month_ago_total">
-         <%= "<< 半年前(#{@six_month_ago})は 計 => #{@total_six_month_ago.sum}  yen使いました >>" %>
+      <% @used_moneys.first(2).each do |used_money| %>
+      <% if user_signed_in? && current_user.id == used_money.user_id %>
+        <div class="month_total">
+          <%= "<< 6ヶ月前(#{@six_month_ago})は total => #{@total_six_month_ago.sum}  yen使いました >>" %>
         </div>
+      <% end %>
+    <% end %>
     </div>
     <% @used_moneys.each do |used_money| %>
     <% if (@six_month_ago.include?(Date.parse(used_money[:date].to_s))) %>
